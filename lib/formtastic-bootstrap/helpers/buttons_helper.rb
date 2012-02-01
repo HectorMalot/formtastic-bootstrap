@@ -7,7 +7,7 @@ module FormtasticBootstrap
       def buttons(*args, &block)
 
         html_options = args.extract_options!
-        html_options[:class] ||= "actions"
+        html_options[:class] ||= "form-actions"
 
         if html_options.has_key?(:name)
           ActiveSupport::Deprecation.warn('The :name option is not supported')

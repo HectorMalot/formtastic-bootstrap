@@ -11,7 +11,7 @@ module FormtasticBootstrap
 
         def choices_wrapping_html_options
           # TODO Call the Formtastic one explicity and append?
-          { :class => "choices input" }
+          { :class => "choices controls" }
         end
 
         def choices_group_wrapping(&block)

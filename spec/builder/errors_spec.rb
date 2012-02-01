@@ -35,7 +35,7 @@ describe 'Formtastic::FormBuilder#errors_on' do
       # FormtasticBootstrap::FormBuilder.default_error_list_class = 'errors'
     # end
 
-    it 'should render a paragraph with the errors joined into a sentence when inline_errors config is :sentence' do
+    it 'should render a span with the errors joined into a sentence when inline_errors config is :sentence' do
       FormtasticBootstrap::FormBuilder.inline_errors = :sentence
       concat(semantic_form_for(@new_post) do |builder|
         builder.input :title
@@ -43,7 +43,7 @@ describe 'Formtastic::FormBuilder#errors_on' do
       output_buffer.should have_tag('span.help-inline', @title_errors.to_sentence)
     end
 
-    it 'should render a paragraph with a overridden default class' do
+    it 'should render a span with a overridden default class' do
       FormtasticBootstrap::FormBuilder.default_inline_error_class = 'better-errors'
       concat(semantic_form_for(@new_post) do |builder|
         builder.input(:title)
@@ -51,7 +51,7 @@ describe 'Formtastic::FormBuilder#errors_on' do
       output_buffer.should have_tag('span.better-errors', @title_errors.to_sentence)
     end
 
-    it 'should render a paragraph with the errors joined into a sentence when inline_errors config is :sentence with a customized error class' do
+    it 'should render a span with the errors joined into a sentence when inline_errors config is :sentence with a customized error class' do
       FormtasticBootstrap::FormBuilder.inline_errors = :sentence
       concat(semantic_form_for(@new_post) do |builder|
         builder.input(:title, :error_class => 'better-errors')
@@ -93,7 +93,7 @@ describe 'Formtastic::FormBuilder#errors_on' do
       end
     end
 
-    it 'should render a paragraph with the first error when inline_errors config is :first' do
+    it 'should render a span with the first error when inline_errors config is :first' do
       FormtasticBootstrap::FormBuilder.inline_errors = :first
       concat(semantic_form_for(@new_post) do |builder|
         builder.input :title
@@ -101,7 +101,7 @@ describe 'Formtastic::FormBuilder#errors_on' do
       output_buffer.should have_tag('span.help-inline', @title_errors.first)
     end
 
-    it 'should render a paragraph with the first error when inline_errors config is :first with a customized error class' do
+    it 'should render a span with the first error when inline_errors config is :first with a customized error class' do
       FormtasticBootstrap::FormBuilder.inline_errors = :first
       concat(semantic_form_for(@new_post) do |builder|
         builder.input :title, :error_class => "better-errors"

@@ -123,7 +123,7 @@ describe 'FormtasticBootstrap::FormBuilder#fields_for' do
     end
 
     it "should render the hidden input inside an div.hidden" do
-      output_buffer.should have_tag 'div.hidden div.input input#author_posts_attributes_0_id'
+      output_buffer.should have_tag 'div.hidden div.controls input#author_posts_attributes_0_id'
     end
   end
 

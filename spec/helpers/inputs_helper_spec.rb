@@ -176,7 +176,7 @@ describe 'Formtastic::FormBuilder#inputs' do
           concat(inputs)
         end)
 
-        output_buffer.should have_tag('form fieldset div.clearfix div.input #post_author_attributes_10_login')
+        output_buffer.should have_tag('form fieldset div.control-group div.controls #post_author_attributes_10_login')
       end
 
       it 'should not add builder as a fieldset attribute tag' do
@@ -349,23 +349,23 @@ describe 'Formtastic::FormBuilder#inputs' do
       it 'should render a div item in the ol for each column and reflection' do
         # Remove the :has_many macro and :created_at column
         count = ::Post.content_columns.size + ::Post.reflections.size - 2
-        output_buffer.should have_tag('form > fieldset.inputs > div.clearfix', :count => count)
+        output_buffer.should have_tag('form > fieldset.inputs > div.control-group', :count => count)
       end
 
       it 'should render a string list item for title' do
-        output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.string')
+        output_buffer.should have_tag('form > fieldset.inputs > div.control-group.string')
       end
 
       it 'should render a text list item for body' do
-        output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.text')
+        output_buffer.should have_tag('form > fieldset.inputs > div.control-group.text')
       end
 
       it 'should render a select list item for author_id' do
-        output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.select', :count => 1)
+        output_buffer.should have_tag('form > fieldset.inputs > div.control-group.select', :count => 1)
       end
 
       it 'should not render timestamps inputs by default' do
-        output_buffer.should_not have_tag('form > fieldset.inputs > div.clearfix.datetime')
+        output_buffer.should_not have_tag('form > fieldset.inputs > div.control-group.datetime')
       end
 
       context "with a polymorphic association" do
@@ -397,9 +397,15 @@ describe 'Formtastic::FormBuilder#inputs' do
             concat(builder.inputs(:title, :body))
           end)
 
+<<<<<<< HEAD
           output_buffer.should have_tag('form > fieldset.inputs > div.clearfix', :count => 2)
           output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.string')
           output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.text')
+=======
+          output_buffer.should have_tag('form > fieldset.inputs > div.control-group', :count => 2)
+          output_buffer.should have_tag('form > fieldset.inputs > div.control-group.string')
+          output_buffer.should have_tag('form > fieldset.inputs > div.control-group.text')
+>>>>>>> add support for Bootstrap 2.0.0
         end
       end
 
@@ -409,7 +415,11 @@ describe 'Formtastic::FormBuilder#inputs' do
             concat(builder.inputs(:title, :body))
           end)
 
+<<<<<<< HEAD
           output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.string', :count => 2)
+=======
+          output_buffer.should have_tag('form > fieldset.inputs > div.control-group.string', :count => 2)
+>>>>>>> add support for Bootstrap 2.0.0
         end
       end
 
@@ -473,7 +483,7 @@ describe 'Formtastic::FormBuilder#inputs' do
       end
 
       it 'should render a form with a fieldset containing two list items' do
-        output_buffer.should have_tag('form > fieldset.inputs > div.clearfix', :count => 4)
+        output_buffer.should have_tag('form > fieldset.inputs > div.control-group', :count => 4)
       end
 
       it 'should pass the options down to the fieldset' do

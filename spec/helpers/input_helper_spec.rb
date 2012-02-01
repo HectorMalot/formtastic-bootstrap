@@ -39,8 +39,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
             concat(semantic_form_for(@new_post) do |builder|
               concat(builder.input(:title, :required => true))
             end)
-            output_buffer.should_not have_tag('form div.clearfix.optional')
-            output_buffer.should have_tag('form div.clearfix.required')
+            output_buffer.should_not have_tag('form div.control-group.optional')
+            output_buffer.should have_tag('form div.control-group.required')
           end
         end
 
@@ -49,7 +49,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
             concat(semantic_form_for(@new_post) do |builder|
               concat(builder.input(:title, :required => true))
             end)
-            output_buffer.should have_tag('form div.clearfix.required label', /required yo/)
+            output_buffer.should have_tag('form div.control-group.required label', /required yo/)
           end
         end
       end
@@ -70,8 +70,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :required => false))
           end)
-          output_buffer.should_not have_tag('form div.clearfix.required')
-          output_buffer.should have_tag('form div.clearfix.optional')
+          output_buffer.should_not have_tag('form div.control-group.required')
+          output_buffer.should have_tag('form div.control-group.optional')
         end
 
         it 'should set and "optional" class also when there is presence validator' do
@@ -81,15 +81,15 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :required => false))
           end)
-          output_buffer.should_not have_tag('form div.clearfix.required')
-          output_buffer.should have_tag('form div.clearfix.optional')
+          output_buffer.should_not have_tag('form div.control-group.required')
+          output_buffer.should have_tag('form div.control-group.optional')
         end
 
         it 'should append the "optional" string to the label' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :required => false))
           end)
-          output_buffer.should have_tag('form div.clearfix.optional label', /#{@string}$/)
+          output_buffer.should have_tag('form div.control-group.optional label', /#{@string}$/)
         end
 
       end
@@ -113,8 +113,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
             concat(semantic_form_for(:project, :url => 'http://test.host/') do |builder|
               concat(builder.input(:title))
             end)
-            output_buffer.should_not have_tag('form div.clearfix.required')
-            output_buffer.should have_tag('form div.clearfix.optional')
+            output_buffer.should_not have_tag('form div.control-group.required')
+            output_buffer.should have_tag('form div.control-group.optional')
 
           end
 
@@ -143,8 +143,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(builder.input(:title))
                 concat(builder.input(:body))
               end)
-              output_buffer.should have_tag('form div.clearfix.required')
-              output_buffer.should_not have_tag('form div.clearfix.optional')
+              output_buffer.should have_tag('form div.control-group.required')
+              output_buffer.should_not have_tag('form div.control-group.optional')
             end
 
             it 'should be required when there is :on => :create option on create' do
@@ -155,8 +155,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@new_post) do |builder|
                   concat(builder.input(:title))
                 end)
-                output_buffer.should have_tag('form div.clearfix.required')
-                output_buffer.should_not have_tag('form div.clearfix.optional')
+                output_buffer.should have_tag('form div.control-group.required')
+                output_buffer.should_not have_tag('form div.control-group.optional')
               end
             end
 
@@ -168,8 +168,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@new_post) do |builder|
                   concat(builder.input(:title))
                 end)
-                output_buffer.should have_tag('form div.clearfix.required')
-                output_buffer.should_not have_tag('form div.clearfix.optional')
+                output_buffer.should have_tag('form div.control-group.required')
+                output_buffer.should_not have_tag('form div.control-group.optional')
               end
             end
 
@@ -181,8 +181,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@fred) do |builder|
                   concat(builder.input(:login))
                 end)
-                output_buffer.should have_tag('form div.clearfix.required')
-                output_buffer.should_not have_tag('form div.clearfix.optional')
+                output_buffer.should have_tag('form div.control-group.required')
+                output_buffer.should_not have_tag('form div.control-group.optional')
               end
             end
 
@@ -193,8 +193,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
               concat(semantic_form_for(@fred) do |builder|
                 concat(builder.input(:login))
               end)
-              output_buffer.should_not have_tag('form div.clearfix.required')
-              output_buffer.should have_tag('form div.clearfix.optional')
+              output_buffer.should_not have_tag('form div.control-group.required')
+              output_buffer.should have_tag('form div.control-group.optional')
             end
 
             it 'should not be required when there is :on => :update option on create' do
@@ -204,8 +204,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
               concat(semantic_form_for(@new_post) do |builder|
                 concat(builder.input(:title))
               end)
-              output_buffer.should_not have_tag('form div.clearfix.required')
-              output_buffer.should have_tag('form div.clearfix.optional')
+              output_buffer.should_not have_tag('form div.control-group.required')
+              output_buffer.should have_tag('form div.control-group.optional')
             end
 
             it 'should be not be required if the optional :if condition is not satisifed' do
@@ -310,11 +310,11 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
             end)
 
             if options[:required]
-              output_buffer.should_not have_tag('form div.clearfix.optional')
-              output_buffer.should have_tag('form div.clearfix.required')
+              output_buffer.should_not have_tag('form div.control-group.optional')
+              output_buffer.should have_tag('form div.control-group.required')
             else
-              output_buffer.should have_tag('form div.clearfix.optional')
-              output_buffer.should_not have_tag('form div.clearfix.required')
+              output_buffer.should have_tag('form div.control-group.optional')
+              output_buffer.should_not have_tag('form div.control-group.required')
             end
           end
 
@@ -338,8 +338,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
               concat(semantic_form_for(@new_post) do |builder|
                 concat(builder.input(:title))
               end)
-              output_buffer.should_not have_tag('form div.clearfix.required')
-              output_buffer.should have_tag('form div.clearfix.optional')
+              output_buffer.should_not have_tag('form div.control-group.required')
+              output_buffer.should have_tag('form div.control-group.optional')
             end
           end
 
@@ -362,8 +362,13 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
             concat(semantic_form_for(@new_post) do |builder|
               concat(builder.input(:title))
             end)
+<<<<<<< HEAD
             output_buffer.should_not have_tag('form div.clearfix.required')
             output_buffer.should have_tag('form div.clearfix.optional')
+=======
+            output_buffer.should_not have_tag('form div.control-group.required')
+            output_buffer.should have_tag('form div.control-group.optional')
+>>>>>>> add support for Bootstrap 2.0.0
 
             # Formtastic::FormBuilder.all_fields_required_by_default = true
           end
@@ -382,7 +387,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(:project, :url => 'http://test.host') do |builder|
             concat(builder.input(:anything))
           end)
-          output_buffer.should have_tag('form div.clearfix.string')
+          output_buffer.should have_tag('form div.control-group.string')
         end
 
         it 'should default to password for forms without objects if column is password' do
@@ -391,7 +396,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
             concat(builder.input(:password_confirmation))
             concat(builder.input(:confirm_password))
           end)
-          output_buffer.should have_tag('form div.clearfix.password', :count => 3)
+          output_buffer.should have_tag('form div.control-group.password', :count => 3)
         end
 
         it 'should default to a string for methods on objects that don\'t respond to "column_for_attribute"' do
@@ -538,21 +543,21 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :label => "Kustom"))
           end)
-          output_buffer.should have_tag("form div.clearfix label", /Kustom/)
+          output_buffer.should have_tag("form div.control-group label", /Kustom/)
         end
 
         it 'should not generate a label if false' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :label => false))
           end)
-          output_buffer.should_not have_tag("form div.clearfix label")
+          output_buffer.should_not have_tag("form div.control-group label")
         end
 
         it 'should be dupped if frozen' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :label => "Kustom".freeze))
           end)
-          output_buffer.should have_tag("form div.clearfix label", /Kustom/)
+          output_buffer.should have_tag("form div.control-group label", /Kustom/)
         end
       end
 
@@ -574,7 +579,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                   concat(semantic_form_for(@new_post) do |builder|
                     concat(builder.input(:meta_description))
                   end)
-                  output_buffer.should have_tag('form div.clearfix label', /Localized title/)
+                  output_buffer.should have_tag('form div.control-group label', /Localized title/)
                 end
               end
             end
@@ -589,7 +594,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(:project, :url => 'http://test.host') do |builder|
                   concat(builder.input(:meta_description))
                 end)
-                output_buffer.should have_tag("form div.clearfix label", /#{'meta_description'.humanize}/)
+                output_buffer.should have_tag("form div.control-group label", /#{'meta_description'.humanize}/)
               end
             end
           end
@@ -602,7 +607,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
               concat(semantic_form_for(@new_post) do |builder|
                 concat(builder.input(:meta_description))
               end)
-              output_buffer.should have_tag("form div.clearfix label", /#{'meta_description'.humanize}/)
+              output_buffer.should have_tag("form div.control-group label", /#{'meta_description'.humanize}/)
             end
           end
 
@@ -614,7 +619,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@new_post) do |builder|
                   concat(builder.input(:meta_description))
                 end)
-                output_buffer.should have_tag("form div.clearfix label", /#{'meta_description'.capitalize}/)
+                output_buffer.should have_tag("form div.control-group label", /#{'meta_description'.capitalize}/)
               end
             end
           end
@@ -643,7 +648,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(builder.input(:title, :label => true))
                 concat(builder.input(:published, :as => :boolean, :label => true))
               end)
-              output_buffer.should have_tag('form div.clearfix label', Regexp.new('^' + @localized_label_text))
+              output_buffer.should have_tag('form div.control-group label', Regexp.new('^' + @localized_label_text))
             end
           end
 
@@ -662,7 +667,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(builder.input(:title, :label => true))
                 concat(builder.input(:published, :as => :boolean, :label => true))
               end)
-              output_buffer.should have_tag('form div.clearfix label', Regexp.new('^' + @default_localized_label_text))
+              output_buffer.should have_tag('form div.control-group label', Regexp.new('^' + @default_localized_label_text))
             end
           end
         end
@@ -687,7 +692,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :hint => hint_text))
           end)
-          output_buffer.should have_tag("form div.clearfix div span.help-inline", hint_text)
+          output_buffer.should have_tag("form div.control-group div span.help-inline", hint_text)
         end
 
         it 'should have a custom hint class if I ask for one' do
@@ -695,7 +700,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :hint => hint_text, :hint_class => 'custom-hint-class'))
           end)
-          output_buffer.should have_tag("form div.clearfix div span.custom-hint-class", hint_text)
+          output_buffer.should have_tag("form div.control-group div span.custom-hint-class", hint_text)
         end
 
         it 'should have a custom hint class defaulted for all forms' do
@@ -705,7 +710,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :hint => hint_text))
           end)
-          output_buffer.should have_tag("form div.clearfix div span.custom-hint-class", hint_text)
+          output_buffer.should have_tag("form div.control-group div span.custom-hint-class", hint_text)
         end
       end
 
@@ -740,7 +745,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@new_post) do |builder|
                   concat(builder.input(:title, :hint => true))
                 end)
-                output_buffer.should have_tag('form div.clearfix div span.help-inline', @localized_hint_text)
+                output_buffer.should have_tag('form div.control-group div span.help-inline', @localized_hint_text)
               end
             end
 
@@ -757,7 +762,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@new_post) do |builder|
                   concat(builder.input(:title, :hint => true, :hint_class => 'custom-hint-class'))
                 end)
-                output_buffer.should have_tag('form div.clearfix div span.custom-hint-class', @localized_hint_text)
+                output_buffer.should have_tag('form div.control-group div span.custom-hint-class', @localized_hint_text)
               end
             end
 
@@ -766,7 +771,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@new_post) do |builder|
                   concat(builder.input(:title, :hint => true))
                 end)
-                output_buffer.should have_tag('form div.clearfix div span.help-inline', @default_localized_hint_text)
+                output_buffer.should have_tag('form div.control-group div span.help-inline', @default_localized_hint_text)
               end
             end
           end
@@ -777,7 +782,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
                 concat(semantic_form_for(@new_post) do |builder|
                   concat(builder.input(:title, :hint => false))
                 end)
-                output_buffer.should_not have_tag('form div.clearfix div span.help-inline', @localized_hint_text)
+                output_buffer.should_not have_tag('form div.control-group div span.help-inline', @localized_hint_text)
               end
             end
           end
@@ -797,7 +802,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
               semantic_form_for(@new_post) do |builder|
                 concat(builder.input(:title, :hint => true))
               end
-              output_buffer.should_not have_tag('form div.clearfix div span.help-inline', @localized_hint_text)
+              output_buffer.should_not have_tag('form div.control-group div span.help-inline', @localized_hint_text)
             end
           end
         end
@@ -808,7 +813,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
               concat(semantic_form_for(@new_post) do |builder|
                 concat(builder.input(:title))
               end)
-              output_buffer.should_not have_tag('form div.clearfix div span.help-inline')
+              output_buffer.should_not have_tag('form div.control-group div span.help-inline')
             end
           end
         end
@@ -830,18 +835,18 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :wrapper_html => {:class => :another_class}, :required => true))
           end)
-          output_buffer.should have_tag("form div.clearfix.string")
-          output_buffer.should have_tag("form div.clearfix.required")
-          output_buffer.should have_tag("form div.clearfix.another_class")
+          output_buffer.should have_tag("form div.control-group.string")
+          output_buffer.should have_tag("form div.control-group.required")
+          output_buffer.should have_tag("form div.control-group.another_class")
         end
 
         it 'should allow classes to be an array' do
           concat(semantic_form_for(@new_post) do |builder|
             concat(builder.input(:title, :wrapper_html => {:class => [ :my_class, :another_class ]}))
           end)
-          output_buffer.should have_tag("form div.clearfix.string")
-          output_buffer.should have_tag("form div.clearfix.my_class")
-          output_buffer.should have_tag("form div.clearfix.another_class")
+          output_buffer.should have_tag("form div.control-group.string")
+          output_buffer.should have_tag("form div.control-group.my_class")
+          output_buffer.should have_tag("form div.control-group.another_class")
         end
       end
 
@@ -851,7 +856,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
       #       concat(builder.input(:title))
       #     end)
       #     output_buffer.should have_tag("form div#post_title_input")
-      #     output_buffer.should have_tag("form div.clearfix.string")
+      #     output_buffer.should have_tag("form div.control-group.string")
       #   end
       # end
       #
@@ -893,7 +898,7 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
         concat(builder.input(:title, my_options))
         concat(builder.input(:publish_at, my_options))
       end)
-      output_buffer.should have_tag 'div.clearfix.string', :count => 2
+      output_buffer.should have_tag 'div.control-group.string', :count => 2
     end
 
   end
