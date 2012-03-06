@@ -215,11 +215,11 @@ describe 'string input' do
     end
 
     it "should generate span with desired prepend string" do
-      output_buffer.should have_tag('form div.input div.input-prepend span.add-on', '@')
+      output_buffer.should have_tag('form div.control-group div.controls div.input-prepend span.add-on', '@')
     end
 
     it "should wrap input in div.input-prepend" do
-      output_buffer.should have_tag('form div.input div.input-prepend input[name="user[handle]"]')
+      output_buffer.should have_tag('form div.control-group div.controls div.input-prepend input[name="user[handle]"]')
     end
   end
 
