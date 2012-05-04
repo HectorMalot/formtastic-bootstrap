@@ -397,15 +397,9 @@ describe 'Formtastic::FormBuilder#inputs' do
             concat(builder.inputs(:title, :body))
           end)
 
-<<<<<<< HEAD
-          output_buffer.should have_tag('form > fieldset.inputs > div.clearfix', :count => 2)
-          output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.string')
-          output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.text')
-=======
           output_buffer.should have_tag('form > fieldset.inputs > div.control-group', :count => 2)
           output_buffer.should have_tag('form > fieldset.inputs > div.control-group.string')
           output_buffer.should have_tag('form > fieldset.inputs > div.control-group.text')
->>>>>>> add support for Bootstrap 2.0.0
         end
       end
 
@@ -415,11 +409,7 @@ describe 'Formtastic::FormBuilder#inputs' do
             concat(builder.inputs(:title, :body))
           end)
 
-<<<<<<< HEAD
-          output_buffer.should have_tag('form > fieldset.inputs > div.clearfix.string', :count => 2)
-=======
           output_buffer.should have_tag('form > fieldset.inputs > div.control-group.string', :count => 2)
->>>>>>> add support for Bootstrap 2.0.0
         end
       end
 

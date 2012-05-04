@@ -362,13 +362,8 @@ describe 'FormtasticBootstrap::FormBuilder#input' do
             concat(semantic_form_for(@new_post) do |builder|
               concat(builder.input(:title))
             end)
-<<<<<<< HEAD
-            output_buffer.should_not have_tag('form div.clearfix.required')
-            output_buffer.should have_tag('form div.clearfix.optional')
-=======
             output_buffer.should_not have_tag('form div.control-group.required')
             output_buffer.should have_tag('form div.control-group.optional')
->>>>>>> add support for Bootstrap 2.0.0
 
             # Formtastic::FormBuilder.all_fields_required_by_default = true
           end

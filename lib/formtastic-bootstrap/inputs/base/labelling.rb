@@ -10,11 +10,10 @@ module FormtasticBootstrap
         end
 
         def label_html_options
-          opts = {}
-          opts[:for] ||= input_html_options[:id]
-          opts[:class] = [opts[:class]]
-
-          opts
+          {}.tap do |opts|
+            opts[:for] ||= input_html_options[:id]
+            opts[:class] = [opts[:class]]
+          end
         end
 
         def control_label_html_options

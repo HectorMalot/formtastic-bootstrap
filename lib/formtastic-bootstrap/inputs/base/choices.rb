@@ -14,13 +14,6 @@ module FormtasticBootstrap
           super.merge(:class => new_class)
         end
 
-        #def choices_group_wrapping(&block)
-        #  template.content_tag(:ul,
-        #    template.capture(&block),
-        #    choices_group_wrapping_html_options
-        #  )
-        #end
-
         # This is actually a label in Bootstrap.
         def legend_html
           template.content_tag(:label, control_label_html_options) do
