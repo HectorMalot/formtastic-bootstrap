@@ -1,4 +1,7 @@
 # This was lifted right out of Formtastic.
+module FakeHelpersModule
+end
+
 module FormtasticSpecHelper
   include ActionPack
   include ActionView::Context if defined?(ActionView::Context)
