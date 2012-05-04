@@ -19,13 +19,7 @@ module FormtasticBootstrap
         end
 
         def error_list_html(ignore)
-          super()
-          # error_class = options[:error_class] || builder.default_error_list_class
-          # list_elements = []
-          # errors.each do |error|
-          #   list_elements << template.content_tag(:li, Formtastic::Util.html_safe(error.html_safe))
-          # end
-          # template.content_tag(:ul, Formtastic::Util.html_safe(list_elements.join("\n")), :class => error_class)
+          super
         end
 
         def error_first_html(inline_or_block = :inline)
@@ -38,7 +32,6 @@ module FormtasticBootstrap
         end
 
         def error_none_html(ignore)
-          # super
           ""
         end
 
