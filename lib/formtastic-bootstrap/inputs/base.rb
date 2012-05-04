@@ -16,7 +16,7 @@ module FormtasticBootstrap
       include Html
       include Labelling
       include Wrapping
-      
+
     end
   end
 end

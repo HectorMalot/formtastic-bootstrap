@@ -118,7 +118,7 @@ describe 'Formtastic::FormBuilder#errors_on' do
       output_buffer.should_not have_tag('span.help-block')
       output_buffer.should_not have_tag('ul.errors')
     end
-  
+
     it 'should allow calling deprecated errors_on and inline_errors_for helpers' do
       FormtasticBootstrap::FormBuilder.inline_errors = :sentence
       with_deprecation_silenced do
@@ -177,7 +177,7 @@ describe 'Formtastic::FormBuilder#errors_on' do
         concat(semantic_form_for(@new_post) do |builder|
           concat(builder.input(:document))
         end)
-      end 
+      end
       output_buffer.should have_tag("div.error")
       output_buffer.should have_tag('span.help-inline', (['must be an image','must be provided', 'must be less than 4mb']).to_sentence)
     end

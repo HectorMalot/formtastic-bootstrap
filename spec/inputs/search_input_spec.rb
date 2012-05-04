@@ -43,10 +43,10 @@ describe 'search input' do
     it_should_have_label_and_input_with_id("context2_post_search")
 
   end
-  
+
   describe "when required" do
     it "should add the required attribute to the input's html options" do
-      with_config :use_required_attribute, true do 
+      with_config :use_required_attribute, true do
         concat(semantic_form_for(@new_post) do |builder|
           concat(builder.input(:title, :as => :search, :required => true))
         end)
@@ -54,6 +54,6 @@ describe 'search input' do
       end
     end
   end
-  
+
 end
 

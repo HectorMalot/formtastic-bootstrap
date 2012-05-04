@@ -34,7 +34,7 @@ describe 'hidden input' do
   it "should get value from the object" do
     output_buffer.should have_tag("form div.clearfix div.input input#post_secret[@type=\"hidden\"][@value=\"1\"]")
   end
-  
+
   it "should pass any explicitly specified value - using :value" do
     output_buffer.should have_tag("form div.clearfix div.input input#post_author_id[@type=\"hidden\"][@value=\"99\"]")
   end
@@ -99,7 +99,7 @@ describe 'hidden input' do
     end
 
   end
-  
+
   context "when required" do
     it "should not add the required attribute to the input's html options" do
       concat(semantic_form_for(@new_post) do |builder|

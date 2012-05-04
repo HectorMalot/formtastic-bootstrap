@@ -47,7 +47,7 @@ describe 'file input' do
     it_should_have_label_and_input_with_id("context2_post_body")
 
   end
-  
+
   context "when required" do
     it "should add the required attribute to the input's html options" do
       with_config :use_required_attribute, true do
@@ -58,6 +58,6 @@ describe 'file input' do
       end
     end
   end
-  
+
 end
 

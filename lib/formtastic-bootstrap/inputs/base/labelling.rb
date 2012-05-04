@@ -11,7 +11,7 @@ module FormtasticBootstrap
             opts[:class] = [opts[:class]]
           end
         end
-        
+
       end
     end
   end

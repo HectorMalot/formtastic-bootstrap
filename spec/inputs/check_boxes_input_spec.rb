@@ -10,7 +10,7 @@ describe 'check_boxes input' do
       @output_buffer = ''
       mock_everything
       Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
-  
+
       concat(semantic_form_for(@fred) do |builder|
         concat(builder.input(:posts, :as => :check_boxes, :value_as_class => true, :required => true))
       end)
@@ -46,11 +46,11 @@ describe 'check_boxes input' do
     #   output_buffer.should have_tag('form li fieldset legend.label label')
     #   output_buffer.should have_tag('form li fieldset legend.label label', /Posts/)
     # end
-    # 
+    #
     # it 'should not link the label within the legend to any input' do
     #   output_buffer.should_not have_tag('form li fieldset legend label[@for^="author_post_ids_"]')
     # end
-    # 
+    #
     # it 'should generate an ordered list with an li.choice for each choice' do
     #   output_buffer.should have_tag('form li fieldset ol')
     #   output_buffer.should have_tag('form li fieldset ol li.choice input[@type=checkbox]', :count => ::Post.all.size)
@@ -73,15 +73,15 @@ describe 'check_boxes input' do
     end
 
     describe "each choice" do
-      
+
       it 'should not give the choice label the .label class' do
         output_buffer.should_not have_tag('li.choice label.label')
       end
-      
+
       it 'should not be marked as required' do
         output_buffer.should_not have_tag('li.choice input[@required]')
       end
-      
+
       it 'should contain a label for the radio input with a nested input and label text' do
         ::Post.all.each do |post|
           output_buffer.should have_tag('form div.clearfix div.input ul li label', /#{post.to_label}/)
@@ -94,7 +94,7 @@ describe 'check_boxes input' do
           output_buffer.should have_tag("form div.clearfix div.input ul li.post_#{post.id} label")
         end
       end
-      
+
       it 'should have a checkbox input but no hidden field for each post' do
         ::Post.all.each do |post|
           output_buffer.should have_tag("form div.clearfix div.input ul li label input#author_post_ids_#{post.id}")
@@ -307,11 +307,11 @@ describe 'check_boxes input' do
       it "should output an empty \'legend\'" do
         output_buffer.should have_tag("div.clearfix > label", "")
       end
-      
+
       it "should not cause escaped HTML" do
         output_buffer.should_not include("&gt;")
       end
-      
+
     end
 
     describe "when :required option is true" do
@@ -374,18 +374,18 @@ describe 'check_boxes input' do
       end
     end
   end
-  
+
   describe 'when :collection is provided as an array of arrays' do
     before do
       @output_buffer = ''
       mock_everything
       @fred.stub(:genres) { ['fiction', 'biography'] }
-      
+
       concat(semantic_form_for(@fred) do |builder|
         concat(builder.input(:genres, :as => :check_boxes, :collection => [['Fiction', 'fiction'], ['Non-fiction', 'non_fiction'], ['Biography', 'biography']]))
       end)
     end
-    
+
     it 'should check the correct checkboxes' do
       output_buffer.should have_tag("form div.clearfix div.input ul li label input[@value='fiction'][@checked='checked']")
       output_buffer.should have_tag("form div.clearfix div.input ul li label input[@value='biography'][@checked='checked']")
@@ -402,7 +402,7 @@ describe 'check_boxes input' do
         concat(builder.input(:posts, :as => :check_boxes))
       end)
     end
-    
+
     it "should have a label for #context2_author_post_ids_19" do
       output_buffer.should have_tag("form li label[@for='context2_author_post_ids_19']")
     end
@@ -417,7 +417,7 @@ describe 'check_boxes input' do
       @_collection = [["First", 1], ["Second", 2]]
       mock_everything
       Formtastic::Helpers::FormHelper.builder = FormtasticBootstrap::FormBuilder
-  
+
       concat(semantic_form_for(@fred) do |builder|
         concat(builder.input(:posts, :as => :check_boxes, :collection => @_collection))
       end)
@@ -432,8 +432,8 @@ describe 'check_boxes input' do
 
     it "should not check any items" do
       output_buffer.should have_tag('form li input[@checked]', :count => 0)
-    end    
+    end
   end
-  
+
 end
 

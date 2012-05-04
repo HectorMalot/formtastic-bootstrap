@@ -23,8 +23,8 @@ describe 'boolean input' do
 
   it 'should generate a label containing the input' do
     output_buffer.should_not have_tag('label.label')
-    
-    
+
+
     output_buffer.should have_tag('form div.clearfix div.input ul li label', :count => 1)
     output_buffer.should have_tag('form div.clearfix div.input ul li label[@for="post_allow_comments"]')
     output_buffer.should have_tag('form div.clearfix div.input ul li label', /Allow comments/)
@@ -152,7 +152,7 @@ describe 'boolean input' do
   end
 
   context "when required" do
-    
+
     it "should add the required attribute to the input's html options" do
       with_config :use_required_attribute, true do
         concat(semantic_form_for(@new_post) do |builder|
@@ -161,7 +161,7 @@ describe 'boolean input' do
         output_buffer.should have_tag("input[@required]")
       end
     end
-      
+
     it "should not add the required attribute to the boolean fields input's html options" do
       with_config :use_required_attribute, true do
         concat(semantic_form_for(@new_post) do |builder|
@@ -170,7 +170,7 @@ describe 'boolean input' do
         output_buffer.should_not have_tag("input[@required]")
       end
     end
-    
+
   end
 
   describe "when namespace is provided" do

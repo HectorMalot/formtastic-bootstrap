@@ -105,7 +105,7 @@ describe 'Formtastic::FormBuilder#buttons' do
     end
 
     describe 'with :names' do
-  
+
       before do
         ActiveSupport::Deprecation.should_receive(:warn)
         concat(
@@ -120,10 +120,10 @@ describe 'Formtastic::FormBuilder#buttons' do
       end
 
     end
-  
-  
+
+
     describe 'with button names and an options hash' do
-  
+
       before do
         concat(
           semantic_form_for(@new_post) do |builder|
@@ -131,18 +131,18 @@ describe 'Formtastic::FormBuilder#buttons' do
           end
         )
       end
-  
+
       it 'should render a form with a div containing a input for each button arg' do
         output_buffer.should have_tag('form > div.actions > input', :count => 1)
         output_buffer.should have_tag('form > div.actions > input.commit', :count => 1)
       end
-  
+
       it 'should pass the options down to the div' do
         output_buffer.should have_tag('form > div#my-id.actions')
       end
-  
+
     end
-  
+
   end
 
 end

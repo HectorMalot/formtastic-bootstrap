@@ -12,7 +12,7 @@ Formtastic Bootstrap has only been tested with Ruby 1.9.2, Rails 3.1, Formtastic
 
 #### Installation
 
-Install the gem with 
+Install the gem with
 
     gem install formtastic-bootstrap
 
@@ -145,7 +145,7 @@ To create a Prepended Text field, use the ```:prepend``` option.  This works on 
     <% end %>
 
 ## Contributing
- 
+
 ### Contributors
 
 A big thank you [to all contributors](https://github.com/mjbellantoni/formtastic-bootstrap/contributors)!

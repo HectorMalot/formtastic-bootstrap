@@ -84,16 +84,16 @@ describe 'select input' do
     #     # Note: Works, but something like Formtastic.root.join(...) would probably be "safer".
     #     ::I18n.load_path = [File.join(File.dirname(__FILE__), *%w[.. .. lib locale en.yml])]
     #     ::I18n.backend.send(:init_translations)
-    # 
+    #
     #     concat(semantic_form_for(@new_post) do |builder|
     #       concat(builder.input(:published, :as => :select))
     #     end)
     #   end
-    # 
+    #
     #   after do
     #     ::I18n.backend.store_translations :en, {}
     #   end
-    # 
+    #
     #   it 'should render a select with at least options: true/false' do
     #     output_buffer.should have_tag("form div.clearfix div.input select option[@value='true']", /^Yes$/)
     #     output_buffer.should have_tag("form div.clearfix div.input select option[@value='false']", /^No$/)
@@ -461,7 +461,7 @@ describe 'select input' do
       end)
       output_buffer.should have_tag("form div.clearfix div.input select[@name='project[author_name]']")
     end
-    
+
     describe 'and :multiple is set to true through :input_html' do
       it "should make the select a multi-select" do
         concat(semantic_form_for(:project, :url => 'http://test.host') do |builder|
@@ -470,7 +470,7 @@ describe 'select input' do
         output_buffer.should have_tag("form div.clearfix div.input select[@multiple]")
       end
     end
-    
+
     describe 'and :multiple is set to true' do
       it "should make the select a multi-select" do
         concat(semantic_form_for(:project, :url => 'http://test.host') do |builder|
@@ -479,7 +479,7 @@ describe 'select input' do
         output_buffer.should have_tag("form div.clearfix div.input select[@multiple]")
       end
     end
-    
+
   end
 
   describe 'when a grouped collection collection is given' do
